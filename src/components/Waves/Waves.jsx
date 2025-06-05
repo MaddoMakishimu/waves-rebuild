@@ -176,6 +176,8 @@ const Waves = ({
       ctx.clearRect(0, 0, width, height);
       ctx.beginPath();
       ctx.strokeStyle = configRef.current.lineColor;
+      ctx.shadowColor = configRef.current.lineColor;
+        ctx.shadowBlur = 40;
       linesRef.current.forEach((points) => {
         let p1 = moved(points[0], false);
         ctx.moveTo(p1.x, p1.y);
