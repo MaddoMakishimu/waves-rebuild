@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import './Waves.css';
+import "./NoiseOverlay.css";
 
 // === classes for gradient noise ===
 class Grad {
@@ -247,20 +248,29 @@ const Waves = ({
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`waves ${className}`}
-      style={{
-        position: "absolute",
-        top: 0, left: 0, margin: 0, padding: 0,
-        width: "100%", height: "100%", overflow: "hidden",
-        backgroundColor,
-        ...style
-      }}
-    >
-      <canvas ref={canvasRef} className="waves-canvas" />
-    </div>
-  );
+  <div
+    ref={containerRef}
+    className={`waves ${className}`}
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      margin: 0,
+      padding: 0,
+      width: "100%",
+      height: "100%",
+      overflow: "hidden",
+      backgroundColor,
+      ...style
+    }}
+  >
+    {/* 1. Insert noise overlay here */}
+    <div className="noise-overlay" />
+
+    {/* 2. Then draw the waves canvas */}
+    <canvas ref={canvasRef} className="waves-canvas" />
+  </div>
+);
 }
 
 export default Waves;
