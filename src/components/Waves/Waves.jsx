@@ -260,14 +260,14 @@ const Waves = ({
       width: "100%",
       height: "100%",
       overflow: "hidden",
-      backgroundColor,
+      backgroundColor,   // should be "rgba(11,2,25,1)"
       ...style
     }}
   >
-    {/* noise overlay */}
+    {/* 1. Noise overlay on top */}
     <div className="noise-overlay" />
 
-    {/* the actual waves canvas */}
+    {/* 2. The interactive waves canvas underneath */}
     <canvas ref={canvasRef} className="waves-canvas" />
   </div>
 );
