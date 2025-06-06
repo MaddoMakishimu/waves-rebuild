@@ -264,10 +264,10 @@ const Waves = ({
       ...style
     }}
   >
-    {/* 1. Insert noise overlay here */}
+    {/* noise overlay */}
     <div className="noise-overlay" />
 
-    {/* 2. Then draw the waves canvas */}
+    {/* the actual waves canvas */}
     <canvas ref={canvasRef} className="waves-canvas" />
   </div>
 );

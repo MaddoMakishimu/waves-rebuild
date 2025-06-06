@@ -1,0 +1,36 @@
+/* NoiseOverlay.css */
+
+.noise-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+
+  /* This inline SVG is a tiny repeating noise pattern. */
+  background-image: url("data:image/svg+xml;base64,\
+PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIw\
+MDAvc3ZnIiB2ZXJzaW9uPSIxLjEiPjxmaWx0ZXIgaWQ9ImYiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjAu\
+NSIvPjwvZmlsdGVyPjxcmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIC8+PC9z\
+dmc+");
+
+  /* Start with a visible opacity so we know it’s loading. */
+  opacity: 0.20;
+
+  /* Blend it softly over the waves; try other blend modes if you like. */
+  mix-blend-mode: overlay;
+
+  /* Animate the noise so it drifts diagonally over 30s. */
+  animation: drift 30s linear infinite;
+}
+
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 512px 512px;
+  }
+}
