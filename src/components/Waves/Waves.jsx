@@ -88,54 +88,14 @@ const Waves = ({
     x: -10, y: 0, lx: 0, ly: 0, sx: 0, sy: 0, v: 0, vs: 0, a: 0, set: false
   });
   const configRef = useRef({
-  lineColor,
-  waveSpeedX,
-  waveSpeedY,
-  waveAmpX,
-  waveAmpY,
-  friction,
-  tension,
-  maxCursorMove,
-  xGap,
-  yGap,
-});
+    lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY,
+    friction, tension, maxCursorMove, xGap, yGap
+  });
+  const frameIdRef = useRef(null);
 
-const frameIdRef = useRef(null);
-
-// Update config on prop change
-useEffect(() => {
-  configRef.current = {
-    lineColor,
-    waveSpeedX,
-    waveSpeedY,
-    waveAmpX,
-    waveAmpY,
-    friction,
-    tension,
-    maxCursorMove,
-    xGap,
-    yGap,
-  };
-
-  console.log("Updated configRef:", configRef.current); // Debug log
-}, [
-  lineColor,
-  waveSpeedX,
-  waveSpeedY,
-  waveAmpX,
-  waveAmpY,
-  friction,
-  tension,
-  maxCursorMove,
-  xGap,
-  yGap,
-]);
-
-// Force color update on mount (before anything draws)
-useEffect(() => {
-  configRef.current.lineColor = lineColor;
-}, []); // Runs once on mount
-
+  useEffect(() => {
+    configRef.current = { lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap };
+  }, [lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
