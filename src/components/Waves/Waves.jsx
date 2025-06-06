@@ -88,14 +88,54 @@ const Waves = ({
     x: -10, y: 0, lx: 0, ly: 0, sx: 0, sy: 0, v: 0, vs: 0, a: 0, set: false
   });
   const configRef = useRef({
-    lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY,
-    friction, tension, maxCursorMove, xGap, yGap
-  });
-  const frameIdRef = useRef(null);
+  lineColor,
+  waveSpeedX,
+  waveSpeedY,
+  waveAmpX,
+  waveAmpY,
+  friction,
+  tension,
+  maxCursorMove,
+  xGap,
+  yGap,
+});
 
-  useEffect(() => {
-    configRef.current = { lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap };
-  }, [lineColor, waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove, xGap, yGap]);
+const frameIdRef = useRef(null);
+
+// Update config on prop change
+useEffect(() => {
+  configRef.current = {
+    lineColor,
+    waveSpeedX,
+    waveSpeedY,
+    waveAmpX,
+    waveAmpY,
+    friction,
+    tension,
+    maxCursorMove,
+    xGap,
+    yGap,
+  };
+
+  console.log("Updated configRef:", configRef.current); // Debug log
+}, [
+  lineColor,
+  waveSpeedX,
+  waveSpeedY,
+  waveAmpX,
+  waveAmpY,
+  friction,
+  tension,
+  maxCursorMove,
+  xGap,
+  yGap,
+]);
+
+// Force color update on mount (before anything draws)
+useEffect(() => {
+  configRef.current.lineColor = lineColor;
+}, []); // Runs once on mount
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -175,8 +215,8 @@ const Waves = ({
       const ctx = ctxRef.current;
       ctx.clearRect(0, 0, width, height);
       ctx.beginPath();
-      ctx.strokeStyle = configRef.current.lineColor;
-      ctx.shadowColor = configRef.current.lineColor;
+      ctx.strokeStyle = '#FF4E27';
+      ctx.shadowColor = '#FF4E27';
         ctx.shadowBlur = 40;
       linesRef.current.forEach((points) => {
         let p1 = moved(points[0], false);
