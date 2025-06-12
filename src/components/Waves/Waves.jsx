@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 import './Waves.css';
-import "./NoiseOverlay.css";
 
 // === classes for gradient noise ===
 class Grad {
