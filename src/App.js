@@ -20,7 +20,7 @@ function App() {
         yGap={36}
       />
 
-      {/* This is your video overlay */}
+      {/* This is your MP4 noise overlay */}
       <video
         className="noise-overlay"
         src="/Overlay_WebCompatible_1.mp4"
@@ -30,11 +30,6 @@ function App() {
         playsInline
       ></video>
 
-      {/* This is your text on top */}
-      <div className="landing-content">
-        <h1>Your Headline</h1>
-        <p>Your subtext goes here</p>
-      </div>
     </div>
   );
 }
