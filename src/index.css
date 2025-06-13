@@ -87,8 +87,8 @@ canvas {
 /* Desktop-only tuning → Step 4 → more punch on desktop */
 @media (min-width: 1024px) {
   .noise-overlay {
-    mix-blend-mode: soft-light;
-    opacity: 0.4;
+    mix-blend-mode: normal;
+    opacity: 0.2;
   }
 
   canvas {
