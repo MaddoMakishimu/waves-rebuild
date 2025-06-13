@@ -83,15 +83,3 @@ canvas {
   padding-top: 20vh;
   font-family: sans-serif;
 }
-
-/* Desktop-only tuning → Step 4 → more punch on desktop */
-@media (min-width: 1024px) {
-  .noise-overlay {
-    mix-blend-mode: saturation;
-    opacity: 0.4;
-  }
-
-  canvas {
-    filter: blur(8px) brightness(2.2) contrast(1.6) saturate(1.5);
-  }
-}
