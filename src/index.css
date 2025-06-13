@@ -28,7 +28,7 @@ canvas {
   left: 0;
   width: 100%;
   height: 100%;
-  filter: blur(6px) brightness(2.0); /* Your current tuning */
+  filter: blur(6px) brightness(2.0) contrast(1.3) saturate(1.2) hue-rotate(5deg);
   z-index: 1;
 
   /* Fade-in animation */
@@ -45,8 +45,8 @@ canvas {
   }
 }
 
-
-/* MP4 noise video overlay */.noise-overlay {
+/* MP4 noise video overlay */
+.noise-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,8 +74,6 @@ canvas {
   }
 }
 
-
-
 /* Landing content on top */
 .landing-content {
   position: relative;
@@ -84,4 +82,16 @@ canvas {
   text-align: center;
   padding-top: 20vh;
   font-family: sans-serif;
+}
+
+/* Desktop-only tuning → Step 4 → more punch on desktop */
+@media (min-width: 1024px) {
+  .noise-overlay {
+    mix-blend-mode: soft-light;
+    opacity: 0.4;
+  }
+
+  canvas {
+    filter: blur(8px) brightness(2.2) contrast(1.6) saturate(1.5);
+  }
 }
